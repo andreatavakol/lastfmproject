@@ -42,6 +42,7 @@ body {
   background-image: url(../AdobeStock_224299774.jpeg);
   background-size: 300%;
   background-repeat: repeat;
+  background-color: #863837;
 }
 h3,
 h4,
@@ -317,7 +318,7 @@ footer {
   flex: 0 1 auto;
   margin: 1rem;
   padding: 1.5rem;
-  background-color: #BBE4FF;
+  background-color: #863837;
 }
 
 /*
