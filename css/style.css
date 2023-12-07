@@ -1,0 +1,254 @@
+/* Reset and base styles */
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+a {
+  font-weight: bold;
+}
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Roboto", Arial, sans-serif;
+  margin: 0.5rem;
+  text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -webkit-text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h3,
+h4,
+h5 {
+  margin-top: 0;
+}
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+@media (min-width: 576px) {
+  body {
+    margin: 1rem 2rem 2rem;
+  }
+}
+
+/* General layout */
+
+section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 0.5rem solid lightyellow;
+  border-bottom: 0.5rem solid lightyellow;
+  margin-bottom: -0.5rem;
+}
+.about {
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  max-width: 720px;
+  font-size: 0.9375rem;
+}
+footer {
+  margin-top: 2rem;
+  font-size: 0.9375rem;
+}
+
+@media (max-width: 575px) {
+  h1 {
+    font-size: 1.5rem;
+    line-height: 1.1;
+    padding-right: 4rem; /* Avoid overlap with Glitch icon */
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Wrapper-specific styles */
+
+.wrapper {
+  display: none;
+}
+.wrapper.plain {
+  display: inherit;
+}
+.wrapper.plain .column.image img {
+  width: initial;
+}
+.column.nav,
+.column.content {
+  padding: 1rem;
+  border: 0.5rem solid #000;
+}
+.column.content h4 {
+  margin-bottom: 1rem;
+}
+.column.image img {
+  width: 100%;
+}
+
+@supports (display: block) and (float: left) {
+  .wrapper.float {
+    display: inherit;
+  }
+  .wrapper.float .row:before,
+  .wrapper.float .row:after {
+    display: table;
+    content: " ";
+  }
+  .wrapper.float .row:after {
+    clear: both;
+  }
+  .wrapper.float .row .row {
+    margin: 0 -0.5rem;
+  }
+  .wrapper.float .column {
+    position: relative;
+    float: left;
+    width: 100%;
+  }
+  .wrapper.float .column.image {
+    width: 50%;
+    padding: 0.5rem;
+  }
+}
+@supports (display: flex) {
+  .wrapper.flex {
+    display: inherit;
+  }
+  .wrapper.flex .row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .wrapper.flex .row .row {
+    margin: 0 -0.5rem;
+  }
+  .wrapper.flex .column {
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+  .wrapper.flex .column.image {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0.5rem;
+  }
+  /* // Opera Mini Extreme Mode tests
+  .wrapper.flex .column.image img {
+    max-width: 150px;
+  }
+  */
+}
+@supports (display: grid) {
+  .wrapper.grid {
+    display: inherit;
+  }
+  .wrapper.grid .row {
+    display: grid;
+  }
+  .wrapper.grid .row .row {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 576px) {
+  @supports (display: flex) {
+    .wrapper.flex .column {
+      flex-basis: 0;
+    }
+    .wrapper.flex .column.content {
+      flex: 0 0 75%;
+      max-width: 75%;
+    }
+  }
+}
+
+/* Other feature support */
+
+@supports not (color: #f2dbffdd) {
+  .wrapper.grid .column.nav {
+    color: #f2dbff;
+  }
+}
+@supports not (font-size: 6vh) {
+  .column.content h4 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Theming (colors and typography) */
+
+.column.nav {
+  font-size: 1.25rem;
+  line-height: 1.75;
+  font-weight: 700;
+}
+.column.content h4 {
+  font-size: 6vh;
+  line-height: 1.1;
+}
+.wrapper.float .column.nav {
+  background: #75e6c4;
+}
+.wrapper.float .column.content {
+  background: #f55f9b;
+}
+.wrapper.flex .column.nav {
+  background: coral;
+}
+.wrapper.flex .column.content {
+  background: wheat;
+}
+.wrapper.grid .column.nav {
+  background: #2f4ba0;
+  color: #f2dbffdd;
+}
+.wrapper.grid .column.content {
+  background: #e4c1fb;
+}
+h1 {
+  color: #c33990;
+}
+a {
+  color: #3e55f5;
+}
+a:hover {
+  color: #0419a9;
+}
+.about,
+footer {
+  color: #666;
+}
+.highlight {
+  background: lightyellow;
+  padding: 0.25rem 0.5rem;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+
+@media (max-width: 600px) {
+  form {
+    max-width: 100%;
+  }
+}
