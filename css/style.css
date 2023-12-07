@@ -40,7 +40,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url(../AdobeStock_224299774.jpeg);
-  background-size: auto;
+  background-size: 300%;
   background-repeat: repeat;
 }
 h3,
