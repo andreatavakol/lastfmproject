@@ -1,5 +1,3 @@
-/* Reset and base styles */
-
 *,
 ::after,
 ::before {
@@ -7,7 +5,13 @@
 }
 a:link {
   font-weight: bold;
-  color: #000;
+  color: #ffffff;
+  text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
 }
 a:hover {
   color: #e4c1fb;
@@ -222,12 +226,6 @@ footer {
   justify-content: center;
   text-align: center;
 }
-.header h2 {
-  font-size: 20px;
-}
-.header h3 {
-  font-size: 15px;
-}
 .column.nav {
   font-size: 1.25rem;
   line-height: 1.75;
@@ -257,6 +255,13 @@ footer {
   background: #e4c1fb;
 }
 h2 {
+  font-size: 40px;
+  text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
   color: #ba0000;
 }
 h3 {
@@ -297,7 +302,7 @@ footer {
   flex: 0 1 auto;
   margin: 1rem;
   padding: 1.5rem;
-  background-color: #d76a68;
+  background-color: #9c3533;
 }
 
 .config {
