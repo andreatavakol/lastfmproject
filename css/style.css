@@ -169,8 +169,8 @@ footer {
       flex-basis: 0;
     }
     .wrapper.flex .column.content {
-      flex: 0 0 75%;
-      max-width: 75%;
+      flex: 0 0 89%;
+      max-width: 89%;
     }
   }
 }
@@ -251,4 +251,8 @@ form {
   form {
     max-width: 100%;
   }
+}
+
+.gallery-container {
+  margin-left: 10px;
 }
