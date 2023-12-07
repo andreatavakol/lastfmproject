@@ -15,28 +15,31 @@
         <main role="main">
           <section class="wrapper flex">
             <h3>Placeholder</h3>
+            <div class="container">
                 <form>
-                  <input
-                    type="text"
-                    id="input"
-                    placeholder="Enter a Last.fm username..."
-                    aria-label="Enter a Last.fm username"
-                  />
-    
-                  <label for="pickType">Select a period of time:</label>
-                  <select id="pickType" aria-label="Choosing period of time">
-                    <option>Last 7 days</option>
-                    <option>Last month</option>
-                    <option>Last 3 months</option>
-                    <option>Last 6 months</option>
-                    <option>Last 12 months</option>
-                    <option>Overall</option>
-                  </select>
-    
-                  <button id="submit" type="submit" aria-label="Submit">Submit</button>
-                </form>
+                    <label for="input">Enter a Last.fm username:</label>
+                    <input
+                      type="text"
+                      id="input"
+                      placeholder="Enter text..."
+                      aria-label="Enter a Last.fm username"
+                    />
+      
+                    <label for="pickType">Select a period of time:</label>
+                    <select id="pickType" aria-label="Choosing period of time">
+                      <option>Last 7 days</option>
+                      <option>Last month</option>
+                      <option>Last 3 months</option>
+                      <option>Last 6 months</option>
+                      <option>Last 12 months</option>
+                      <option>Overall</option>
+                    </select>
+      
+                    <button id="submit" type="submit" aria-label="Submit">Submit</button>
+                  </form>
+            </div>
                 <!-- <div id="container"></div> -->
-                <div class="column content" id="chartPlace">
+                <div class="container" id="chartPlace">
                     <div class="row">
                         <div id="gallery" class="gallery-container"></div>
                     </div>
