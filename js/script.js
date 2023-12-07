@@ -1,7 +1,11 @@
 // Set Last.fm API key and username
 const apiKey = "eec3d37ba5f26bcbda54681e7b97dde7";
 
-let imagesArray = [];
+async function makeGrid (imgs) {
+  const element = document.querySelector('#container');
+  const photoGrid = new PhotoGridBox(element, imgs);
+  photoGrid.setShowUnCompleteRow(false);
+}
 
 async function getData() {
   event.preventDefault();
@@ -11,53 +15,57 @@ async function getData() {
   //getting username
   const username = document.getElementById("input").value;
 
+  //setting up API url
   let apiURL;
-  let urlBase;
+  const URLBase = "https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=";
 
   //get value from dropdown menu
   const chartType = document.getElementById("pickType").value;
   console.log(chartType);
-
-  //api URL changes depending on what we want to do
-  if (chartType === "Weekly Album Chart") {
-    urlBase =
-      "https://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=";
-  } else {
-    //Top Albums Chart
-    urlBase =
-      "https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=";
+  
+  //setting time parameter
+  let periodOfTime = "overall";
+  if (chartType === "Last 7 days") {
+   periodOfTime = "7day";
+  } else if (chartType === "Last month") {
+    periodOfTime = "1month";
+  } else if (chartType === "Last 3 months") {
+    periodOfTime = "3month";
+  } else if (chartType === "Last 6 months") {
+    periodOfTime = "6month";
+  } else if (chartType === "Last 12 months") {
+    periodOfTime = "12month";
   }
 
   //put together whole API URL
-  apiURL = urlBase + username + "&api_key=" + apiKey + "&format=json";
+  apiURL = URLBase + username + "&period=" + periodOfTime + "&api_key=" + apiKey + "&format=json";
 
   const response = await fetch(apiURL);
   let userData = await response.json();
   console.log(userData);
 
-  /*
-  //this will hold all the album images
-  let images = [];
-
-  let xPos = [];
-  let yPos = [];
-  */
   let imageURLs = [];
-  userData.topalbums.album.forEach((node) => {
-    //sizes: 0 is small, 1 is medium, 2 is large, 3 is extra-large
-    imageURLs.push(node.image[2]["#text"]);
+  await userData.topalbums.album.forEach((node) => {
+    //sizes: 0 is small, 1 is medium, 2 is large, 3 is extra-large (clearest quality)
+    imageURLs.push(node.image[3]["#text"]);
   });
-  console.log(imageURLs);
-  const element = document.querySelector('#container');
-  const photoGrid = new PhotoGridBox(element, imageURLs);
-  photoGrid.setShowUnCompleteRow(false);
+  //console.log(imageURLs);
+  return imageURLs;
 }
 
 async function mainEvent() {
   console.log("Loaded script.js");
 
-  const form = document.querySelector("form");
-  form.addEventListener("submit", getData);
+  const button = document.getElementById("submit");
+  //let images;
+
+  button.addEventListener('click', async () => {
+    event.preventDefault;
+    const images = await getData();
+    console.log(images);
+
+    await makeGrid(images);
+  })
 }
 
 // the async keyword means we can make API requests

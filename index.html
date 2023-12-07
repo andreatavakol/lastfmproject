@@ -13,10 +13,8 @@
     <body>
         <h1>Last.fm Visualizer</h1>
         <main role="main">
-          <section class="wrapper flex">
+          <div class="wrapper flex">
             <h3>Placeholder</h3>
-            <div class="row">
-              <div class="column nav">
                 <form>
                   <input
                     type="text"
@@ -25,24 +23,21 @@
                     aria-label="Enter a Last.fm username"
                   />
     
-                  <label for="pickType">Select a chart type:</label>
-                  <select id="pickType" aria-label="Choose data">
-                    <option>Weekly Album Chart</option>
-                    <option>Overall Top Album Chart</option>
+                  <label for="pickType">Select a period of time:</label>
+                  <select id="pickType" aria-label="Choosing period of time">
+                    <option>Last 7 days</option>
+                    <option>Last month</option>
+                    <option>Last 3 months</option>
+                    <option>Last 6 months</option>
+                    <option>Last 12 months</option>
+                    <option>Overall</option>
                   </select>
     
-                  <button type="submit" aria-label="Submit">Submit</button>
+                  <button id="submit" type="submit" aria-label="Submit">Submit</button>
                 </form>
-              </div>
-              <div class="column content">
-                <h4>Come on and slam</h4>
-                <p>and welcome to the jam</p>
-                <div class="row">
-                    <div id="container"></div>
-                </div>
-              </div>
+                <div id="container"></div>
             </div>
-          </section>
+        </div>
         </main>
         <footer role="contentinfo">
           Built by Andrea Tavakol for INST630 Fall 2023
