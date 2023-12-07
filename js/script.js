@@ -10,6 +10,7 @@ async function makeGrid (imgs) {
 */
 
 async function makeCubeGallery(imgs) {
+  document.getElementById("chartPlace").style.visibility = "visible"; 
   const gallery = document.getElementById("gallery");
   await imgs.forEach((node) => {
     let currImg = document.createElement("img");
@@ -17,7 +18,10 @@ async function makeCubeGallery(imgs) {
     console.log(currImg.src);
     gallery.appendChild(currImg);
   });
-  new CubeGallery('gallery');
+  new CubeGallery('gallery', {
+    minHeight: 100,
+    margin: 5
+})
 }
 
 async function getData() {
@@ -78,6 +82,7 @@ async function mainEvent() {
 
     //await makeGrid(images);
 
+    document.getElementById("chartPlace").style.visibility = "hidden"; 
     //jquery to clear any existing images
     $( "img" ).remove();
     await makeCubeGallery(images);
