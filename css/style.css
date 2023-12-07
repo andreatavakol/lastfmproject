@@ -14,7 +14,7 @@ a:link {
        1px 1px 0 #000;
 }
 a:hover {
-  color: #e4c1fb;
+  color: #fbc1cd;
 }
 a:active {
   color: #e4c1fb;
@@ -40,8 +40,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url(../AdobeStock_224299774.jpeg);
-  background-size: 200% auto;
-  background-repeat: no-repeat;
+  background-size: auto;
+  background-repeat: repeat;
 }
 h3,
 h4,
@@ -75,8 +75,8 @@ button {
 section {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  border-top: 0.5rem solid rgb(40, 40, 40);
-  border-bottom: 0.5rem solid rgb(40, 40, 40);
+  /*border-top: 0.5rem solid rgb(40, 40, 40);
+  border-bottom: 0.5rem solid rgb(40, 40, 40);*/
   margin-bottom: -0.5rem;
 }
 .about {
@@ -89,6 +89,13 @@ footer {
   color: #000;
   margin-top: 2rem;
   font-size: 0.9375rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: start;
+  /*flex:1;*/
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 0 1 auto;
 }
 
 @media (max-width: 575px) {
@@ -267,12 +274,6 @@ h2 {
 h3 {
   color: white;
 }
-a {
-  color: #3e55f5;
-}
-a:hover {
-  color: #0419a9;
-}
 .about,
 footer {
   color: #666;
@@ -302,7 +303,12 @@ footer {
   flex: 0 1 auto;
   margin: 1rem;
   padding: 1.5rem;
-  background-color: #9c3533;
+  background-color: #863837;
+  border: #000;
+  border-width: 2px;
+  border-style: dotted;
+  border-collapse: separate; 
+  overflow: hidden;
 }
 
 .config {
