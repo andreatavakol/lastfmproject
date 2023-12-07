@@ -1,10 +1,23 @@
 // Set Last.fm API key and username
 const apiKey = "eec3d37ba5f26bcbda54681e7b97dde7";
 
+/*
 async function makeGrid (imgs) {
   const element = document.querySelector('#container');
   const photoGrid = new PhotoGridBox(element, imgs);
   photoGrid.setShowUnCompleteRow(false);
+}
+*/
+
+async function makeCubeGallery(imgs) {
+  const gallery = document.getElementById("gallery");
+  await imgs.forEach((node) => {
+    let currImg = document.createElement("img");
+    currImg.src = node;
+    console.log(currImg.src);
+    gallery.appendChild(currImg);
+  });
+  new CubeGallery('gallery');
 }
 
 async function getData() {
@@ -60,11 +73,14 @@ async function mainEvent() {
   //let images;
 
   button.addEventListener('click', async () => {
-    event.preventDefault;
     const images = await getData();
     console.log(images);
 
-    await makeGrid(images);
+    //await makeGrid(images);
+
+    //jquery to clear any existing images
+    $( "img" ).remove();
+    await makeCubeGallery(images);
   })
 }
 
